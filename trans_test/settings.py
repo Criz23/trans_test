@@ -15,6 +15,7 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+from django.utils.translation import gettext_lazy as _
 
 
 # Quick-start development settings - unsuitable for production
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'trans_test.urls'
@@ -105,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
 #LANGUAGE_CODE = 'en'
-LANGUAGE_CODE = 'es'
+LANGUAGE_CODE = 'zh-hant'
 
 TIME_ZONE = 'UTC'
 
@@ -117,23 +119,13 @@ USE_TZ = True
 
 
 LOCAL_PATHS = [
-    os.path.join(BASE_DIR, 'locale')
+    os.path.join(BASE_DIR, 'locale/')
 ]
 
 TRANSLATED_LANGUAGES = (
-    ('nl', 'Dutch'),
-    ('en', 'English'),
-    ('et', 'Estonian'),
-    ('fr', 'Français'),
-    ('de', 'German'),
-    ('el', 'Greek'),
-    ('hu', 'Hungarian'),
-    ('it', 'Italian'),
-    ('lt', 'Lituanian'),
-    ('pt', 'Portuguese'),
-    ('es', 'Spanish'),
-    ('sv', 'Swedish'),
-    ('zh-hant', 'S C'),
+    ('es', _('Spanish')),
+    ('es_mx', _('Spanish Mex')),
+    ('zh-hant', _('S C')),
 )
 
 # Static files (CSS, JavaScript, Images)

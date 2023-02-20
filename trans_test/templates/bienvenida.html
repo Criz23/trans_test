@@ -8,5 +8,15 @@
 </head>
 <body>
 	<h1>{% trans "This is a test in html 5" %}</h1>
+
+	{% trans "This is a second test in html 5" %}
+
+	{% trans 'hello'%}
+
+	{% get_language_info_list for LANGUAGES as languages %}
+
+	{% for l in languages %}
+		<button title=”{{ l.name_local |title}}” name=”language” type=”submit” class=”btn-floating” value=”{{ l.code }}”>{{ l.code | upper }}</button>
+	{% endfor %}
 </body>
 </html>
